@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="parties-section">
+    <h1>Parties</h1>
+    <div class="create-party">
+      <input [(ngModel)]="newPartyName" placeholder="New party name">
+      <button class="create-button" (click)="addParty()">Create Party</button>
+    </div>
+    <ul>
+      <li *ngFor="let party of parties">
+        <input type="checkbox" [(ngModel)]="party.state" (change)="updateParty(party.id, party.state)">
+        <span [ngClass]="{ 'active': party.state, 'inactive': !party.state }">
+          {{ party.name }} - {{ party.state ? 'Active' : 'Inactive' }}
+        </span>
+        <button class="delete-btn" (click)="deleteParty(party.id)">X</button>
+      </li>
+    </ul>
+    <div>
+      <p>Total Inactive Parties: {{ countInactiveParties() }}</p>
+    </div>
+  </div>
+
+  <div class="profiles-section">
+    <h1>Profiles</h1>
+    <div class="create-profile">
+      <input [(ngModel)]="newProfileName" placeholder="New profile name">
+      <button class="create-button" (click)="addProfile()">Create Profile</button>
+    </div>
+    <ul>
+      <li *ngFor="let profile of profiles" [ngClass]="{ 'selected-profile': profile.id === selectedProfileId }">
+        <button (click)="selectCurrentUserProfile(profile.id)" [ngClass]="{ 'selected': profile.id === currentUserProfileId }">Set as Me</button>
+        {{ profile.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="chat-section">
+    <h1>Chat</h1>
+    <div class="search-profile">
+      <input type="text" placeholder="Search profile..." [(ngModel)]="searchTerm">
+      <button (click)="searchProfiles()">Search</button>
+    </div>
+    <ul>
+      <li *ngFor="let profile of filteredProfiles">
+        <button (click)="startChat(profile.id)">Chat with {{ profile.name }}</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="selectedProfileId" class="chat-section">
+  <h2>Chatting with {{ getSelectedProfileName() }}</h2>
+  <ul class="messages">
+    <li *ngFor="let message of messages">
+      <div *ngIf="message.senderId === currentUserProfileId; else receiverBlock" class="message-sent">
+        <p><strong>You:</strong> {{ message.text }}</p>
+      </div>
+      <ng-template #receiverBlock>
+        <p><strong>{{ getSenderName(message) }}:</strong> {{ message.text }}</p>
+      </ng-template>
+      <small>Sent on: {{ formatTimestamp(message.timestamp) }}</small>
+    </li>
+  </ul>
+  <div class="send-message">
+    <input type="text" [(ngModel)]="newMessageText" placeholder="New message">
+    <button class="send-button" (click)="sendMessage()">Send Message</button>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .parties-section,
+  .profiles-section,
+  .chat-section {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-button,
+  .send-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .create-party,
+  .create-profile,
+  .search-profile {
+    margin-bottom: 20px;
+  }
+  
+  .messages {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .messages li {
+    margin-bottom: 10px;
+  }
+  
+  .message-sent {
+    background-color: #007bff;
+    color: white;
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+  
+  .active {
+    color: green;
+  }
+  
+  .inactive {
+    color: red;
+  }
+  
+  .selected-profile {
+    box-shadow: 0 0 10px #007bff;
+  }
+  
+  .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .selected {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .parties-section,
+    .profiles-section,
+    .chat-section {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
