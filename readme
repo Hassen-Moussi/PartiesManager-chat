@@ -1,1 +1,6 @@
 
+I developed this project using a combination of Node.js, Express.js, and Angular. Node.js provided the backend environment where I structured the server-side logic and defined API endpoints using Express.js. This allowed me to handle data operations such as creating, retrieving, updating, and deleting parties, profiles, and messages. Sequelize ORM facilitated database interactions with PostgreSQL, ensuring efficient data management.
+
+On the frontend, Angular was used to build a dynamic and responsive user interface. Angular's powerful features like components, services, data binding, and HTTP client made it straightforward to implement functionalities such as creating parties and profiles, searching, and initiating chats. I integrated Angular Material for UI components and applied custom styling with CSS to enhance the user experience.
+
+The application's architecture followed a client-server model where Angular served as the client-side interface interacting with the Node.js backend via RESTful APIs. This setup enabled seamless communication between the frontend and backend, ensuring robust performance and scalability. Overall, leveraging these technologies allowed me to create a modern, interactive application with robust functionality for managing parties, profiles, and real-time messaging.
